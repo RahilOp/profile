@@ -4,8 +4,8 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SR',
-  description: 'Developed by Rahil'
+  title: 'Syed Ali Abbas Rahil — AI Engineer',
+  description: 'AI Engineer specializing in LLMs, agentic architectures, and RAG pipelines.'
 }
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <style>{`
 html {

@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# latex build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+resume.log
+resume.out

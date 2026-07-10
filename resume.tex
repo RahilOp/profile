@@ -1,0 +1,175 @@
+%-------------------------
+% Resume in Latex (Optimized for AI/ML Engineer Role)
+%------------------------
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[sfdefault]{sourcesanspro}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{colortbl}
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+
+\usepackage[most]{tcolorbox}
+\tcbset{
+  frame code={},
+  center title,
+  left=0pt, right=0pt, top=0pt, bottom=0pt,
+  colback=gray!20, colframe=white,
+  width=\dimexpr\textwidth\relax,
+  enlarge left by=-2mm,
+  boxsep=4pt,
+  arc=0pt, outer arc=0pt,
+}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% ---------- Section formatting ----------
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% ---------- Custom commands ----------
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeSubheading}[4]{\vspace{0.5mm}\item
+    \begin{tabularx}{0.98\textwidth}[t]{@{}X r@{}}
+        \textsc{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabularx}\vspace{-2.0mm}
+}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=2.6ex, rightmargin=2ex, labelsep=1.0mm, itemsep=0.4mm]\small}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-1.2mm}}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% ---------- Identity ----------
+\newcommand{\name}{Syed Ali Abbas Rahil}
+\newcommand{\course}{B.Tech — Computer Science and Engineering}
+\newcommand{\emailb}{rahilrizvi0786110@gmail.com}
+\newcommand{\github}{RahilOp}
+\newcommand{\linkedin}{syedrahil876}
+\newcommand{\profile}{profile}
+
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{tabularx}{\linewidth}{@{}L r@{}}
+  {\LARGE\bfseries \name} & \href{mailto:\emailb}{\emailb} \\
+  \course & \href{https://www.linkedin.com/in/\linkedin/}{linkedin.com/in/\linkedin} \\
+  \href{https://rahilop.github.io/\profile/}{rahilop.github.io/\profile} & \href{https://github.com/\github/}{github.com/\github} \\
+\end{tabularx}
+\vspace{-5mm}
+
+% ---------- EDUCATION ----------
+\section{Education}
+\setlength{\tabcolsep}{5pt}
+\small{
+\begin{tabularx}{\dimexpr\textwidth-3mm\relax}{|c|C|c|c|}
+  \hline
+  \textbf{Degree/Certificate} & \textbf{Institute/Board} & \textbf{CGPA/Percentage} & \textbf{Year} \\
+  \hline
+  B.Tech & Indian Institute of Technology, Patna & 8.44/10  & 2020–2024 \\
+  \hline
+  Senior Secondary & CISCE Board & 98.40\% & 2020 \\
+  \hline
+  Secondary & ICSE Board & 97.67\% & 2018 \\
+  \hline
+\end{tabularx}}
+\vspace{-2mm}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Otsuka Corporation}{October 2024 -- Present}
+    {AI Engineer (Full-Time)}{Tokyo, Japan}
+    \resumeItemListStart
+      \resumeItem{Engineered agentic \textbf{RAG chatbots} for \textbf{1,000+} monthly users using ELK stack, LangChain, and Knowledge Graphs with long-term memory; improved retrieval accuracy by \textbf{31\%} and reduced search latency by \textbf{23\%}.}
+      \resumeItem{Built an enterprise \textbf{Knowledge Management System} with a 2-stage LLM evaluation pipeline that auto-generates QA pairs from \textbf{500+} internal documents; increased knowledge accessibility by \textbf{13\%} for \textbf{1,000+} sales representatives.}
+      \resumeItem{Deployed \textbf{Bayesian leaderboards} and multi-tenant \textbf{RBAC} across \textbf{3} data sources (Microsoft Teams, SharePoint, CSV); secured role-based access for \textbf{5+} internal teams.}
+      \resumeItem{Fine-tuned \textbf{3+} Large Language Models via \textbf{SFT and RLHF} on multi-node on-premise GPU clusters using LoRA/QLoRA; achieved \textbf{15\%} improvement on Question Answering benchmarks.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Otsuka Corporation}{June 2023 -- July 2023}
+    {AI Research Intern}{Tokyo, Japan}
+    \resumeItemListStart
+      \resumeItem{Developed \textbf{multi-agent LLM simulations} with LangChain in a \textbf{2-month} research engagement; reduced task completion time by \textbf{15\%} in automated workflow pipelines.}
+      \resumeItem{Prototyped \textbf{3} autonomous agents with \textbf{adaptive memory} and goal-planning; delivered end-to-end multi-turn collaborative reasoning across \textbf{3+} complex task scenarios.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \item \textbf{AGENT FORGE -- MULTI-TOOL AI AGENT PLATFORM} \hfill \textit{March 2025}\\
+  \textit{Personal Project}\hfill \href{https://github.com/RahilOp/agent-forge}{\textit{GitHub}}
+  \vspace{-0.6em}
+  \resumeItemListStart
+    \resumeItem{Created a full-stack multi-agent chat platform (\textbf{FastAPI} + \textbf{React/TypeScript}) with \textbf{2} configurable agent personas and \textbf{4} integrated tools; enabled real-time web search, Wikipedia lookup, and persistent chat history via LangChain tool-calling.}
+    \resumeItem{Implemented LLM-powered \textbf{long-term memory} that auto-extracts user preferences from conversations using Pydantic structured outputs; persisted chat history and user profiles in \textbf{SQLite} with full session CRUD operations.}
+  \resumeItemListEnd
+
+  \item \textbf{RAG BENCHMARK TOOLKIT} \hfill \textit{December 2024}\\
+  \textit{Personal Project}\hfill \href{https://github.com/RahilOp/rag-benchmark-toolkit}{\textit{GitHub}}
+  \vspace{-0.6em}
+  \resumeItemListStart
+    \resumeItem{Benchmarked \textbf{100+} RAG pipeline configurations across \textbf{4} document processors, \textbf{9} chunking strategies, and \textbf{4} search methods (BM25, KNN, Hybrid) on Elasticsearch 8.x; integrated cross-encoder reranking to optimize retrieval quality.}
+    \resumeItem{Automated end-to-end evaluation using \textbf{MRR, RAGAS Context Precision, ROUGE, and semantic similarity} across \textbf{3} LLM families (LLaMA, GPT, Qwen); replaced manual benchmarking with a single YAML-driven test pipeline.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\resumeSubHeadingListStart
+  \resumeItem{\textbf{Programming}: Python, C, C++, React/Next.js, SQL, Data Structures \& Algorithms, Probability \& Statistics}
+  \resumeItem{\textbf{ML/AI}: PyTorch, TensorFlow, Axolotl, DeepEval, MCP, LangChain, CrewAI, Mixture of Experts (MoE)}
+  \resumeItem{\textbf{Databases}: Elasticsearch, MySQL, MongoDB, PostgreSQL, Neo4j}
+  \resumeItem{\textbf{MLOps}: MLflow, LangFuse, AWS/Azure, Redis, vLLM, Docker, Kubernetes}
+\resumeSubHeadingListEnd
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements \& Leadership}
+\resumeSubHeadingListStart
+  \resumeItem{Secured \textbf{AIR 2796} in JEE Advanced 2020 (top 0.3\% of 150,000+ candidates nationwide).}
+  \resumeItem{Solved \textbf{600+ DSA problems} across Codeforces (Specialist), CodeChef (1992), and LeetCode.}
+  \resumeItem{Published \textbf{DisT5: A Text-to-Text Transformer Model for Disaster Events} in \textit{Online Social Networks and Media (Elsevier)}, 2026.}
+  \resumeItem{Completed \textbf{Python for Machine Learning \& Data Science} certification on Udemy.}
+  \resumeItem{Achieved \textbf{Japanese Language Proficiency Test (NAT) N5} qualification.}
+  \resumeItem{Coordinator -- Creative Writing \& Social Media, E-Cell, IIT Patna.}
+\resumeSubHeadingListEnd
+
+\end{document}

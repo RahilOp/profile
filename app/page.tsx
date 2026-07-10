@@ -70,7 +70,7 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-black overflow-hidden relative">
+    <div className="min-h-screen bg-[#060911] overflow-hidden relative">
       <AnimatedBackground />
       <Navigation currentPage={currentPage} onPageChange={handlePageChange} />
       

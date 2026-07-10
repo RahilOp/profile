@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { SystemPanel } from './system-panel'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink, Play, Star, GitFork } from 'lucide-react'
+import { Github, Lock } from 'lucide-react'
 import Image from "next/image"
 
 export function ProjectsPage() {
@@ -12,100 +12,91 @@ export function ProjectsPage() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
   const categories = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'ai', label: 'AI/ML' },
-    { id: 'research', label: 'Research' }
+    { id: 'all', label: 'All' },
+    { id: 'ai', label: 'AI / Agents' },
+    { id: 'research', label: 'Research' },
+    { id: 'work', label: 'Enterprise' },
   ]
 
   const projects = [
-  {
-    id: 1,
-    title: "Data Augmentation Pipeline for LLM SFT Training",
-    category: "ai",
-    description: "Designed a modular pipeline to generate SFT datasets using multi-agent architecture and Pydantic models.",
-    longDescription: "A comprehensive data augmentation system that generates high-quality SFT datasets including single-turn QA, multi-turn QA, and ORPO formats. The pipeline uses multi-agent architecture with Elasticsearch-based chunk retrieval and retry logic to ensure contextual relevance and data quality for downstream LLM fine-tuning.",
-    image: "/profile/dataaugmentation.png",
-    technologies: ["Python", "Multi-agent Systems", "Pydantic", "ElasticSearch", "LLM Fine-tuning"],
-    github: "#",
-    demo: "#",
-    status: "Active",
-    color: "from-emerald-400 to-emerald-600"
-  },
-  {
-    id: 2,
-    title: "Multi-Agent Chatbot Framework",
-    category: "ai",
-    description: "Built a multi-agent system with tool/function calling, agent routing, and persistent user memory for dynamic conversation management.",
-    longDescription: "An advanced conversational AI system featuring multiple specialized agents with tool calling capabilities, intelligent routing, and both short-term and long-term memory management. The system integrates Langchain agents with various tools including Bing web search, internal APIs, and retrieval systems, all exposed through a user-friendly frontend interface.",
-    image: "/profile/chatbot.png",
-    technologies: ["Langchain", "Multi-agent Systems", "Tool Calling", "Memory Management", "Bing API"],
-    github: "#",
-    demo: "#",
-    status: "Active",
-    color: "from-purple-400 to-purple-600"
-  },
-  {
-    id: 3,
-    title: "RAG Evaluation Framework",
-    category: "research",
-    description: "Developed an end-to-end RAG pipeline to benchmark preprocessors, chunking methods, embeddings, and retrieval strategies.",
-    longDescription: "A comprehensive evaluation framework for RAG systems that benchmarks various components including preprocessors (Tika, Marker), chunking methods, embeddings (BGE-M3, Sarashina), and retrieval strategies using MRR and RAGAS metrics. The system evaluates generation capabilities of different LLMs (LLaMA, GPT, Qwen) to identify optimal RAG configurations for document-based QA tasks.",
-    image: "/profile/rag.jpg",
-    technologies: ["RAG", "BGE-M3", "Sarashina", "LLaMA", "GPT", "Qwen", "RAGAS", "MRR"],
-    github: "#",
-    demo: "#",
-    status: "Active",
-    color: "from-yellow-400 to-yellow-600"
-  },
-  {
-    id: 4,
-    title: "Teams Knowledge Management System",
-    category: "Development",
-    description: "Built a platform using MS Graph API, PostgreSQL, and Celery to sync Teams messages, auto-tag Q&A, compute leaderboards, and expose admin dashboard.",
-    longDescription: "Built a platform using MS Graph API, PostgreSQL, and Celery to sync Teams messages, auto-tag Q&A, compute leaderboards, and expose admin dashboard.",
-    image: "/profile/kms.png",
-    technologies: ["FastAPI",
-        "PostgreSQL",
-        "Celery",
-        "Redis",
-        "React",
-        "MS Graph API",
-        "Docker"],
-    github: "#",
-    demo: "#",
-    status: "Active",
-    color: "from-pink-400 to-pink-600"
-  }
-]
+    {
+      id: 1,
+      title: "Agent Forge — Multi-Tool AI Agent Platform",
+      category: "ai",
+      rank: "S",
+      date: "March 2025",
+      description: "Full-stack multi-agent chat platform (FastAPI + React/TypeScript) with configurable personas and integrated tools.",
+      longDescription: "A full-stack multi-agent chat platform with 2 configurable agent personas and 4 integrated tools — real-time web search, Wikipedia lookup, and persistent chat history via LangChain tool-calling. Features LLM-powered long-term memory that auto-extracts user preferences using Pydantic structured outputs, with sessions and profiles persisted in SQLite.",
+      image: "/chatbot.png",
+      technologies: ["FastAPI", "React", "TypeScript", "LangChain", "Pydantic", "SQLite"],
+      github: "https://github.com/RahilOp/agent-forge",
+    },
+    {
+      id: 2,
+      title: "RAG Benchmark Toolkit",
+      category: "research",
+      rank: "S",
+      date: "December 2024",
+      description: "Benchmarked 100+ RAG pipeline configurations across processors, chunking strategies, and search methods.",
+      longDescription: "An end-to-end RAG evaluation toolkit benchmarking 100+ pipeline configurations across 4 document processors, 9 chunking strategies, and 4 search methods (BM25, KNN, Hybrid) on Elasticsearch 8.x with cross-encoder reranking. Automated evaluation via MRR, RAGAS Context Precision, ROUGE, and semantic similarity across LLaMA, GPT, and Qwen — driven by a single YAML config.",
+      image: "/rag.jpg",
+      technologies: ["Elasticsearch", "RAGAS", "BM25/KNN/Hybrid", "Cross-Encoder", "LLaMA · GPT · Qwen"],
+      github: "https://github.com/RahilOp/rag-eval",
+    },
+    {
+      id: 3,
+      title: "Dataset Augmenter — SFT Pipeline",
+      category: "ai",
+      rank: "A",
+      date: "2024",
+      description: "Modular pipeline generating SFT datasets using multi-agent architecture and Pydantic models.",
+      longDescription: "A modular data-augmentation pipeline that generates high-quality SFT datasets — single-turn QA, multi-turn QA, and ORPO formats. Uses a multi-agent architecture with Elasticsearch-based chunk retrieval and retry logic to ensure contextual relevance and data quality for downstream LLM fine-tuning.",
+      image: "/dataaugmentation.png",
+      technologies: ["Python", "Multi-agent", "Pydantic", "Elasticsearch", "ORPO"],
+      github: "https://github.com/RahilOp/Dataset-Augmenter",
+    },
+    {
+      id: 4,
+      title: "Teams Knowledge Management System",
+      category: "work",
+      rank: "A",
+      date: "Otsuka Corporation",
+      description: "Enterprise platform syncing Teams messages, auto-tagging Q&A, and computing leaderboards.",
+      longDescription: "An enterprise platform built with MS Graph API, PostgreSQL, and Celery to sync Microsoft Teams messages, auto-tag Q&A pairs, compute Bayesian leaderboards, and expose an admin dashboard — deployed with multi-tenant RBAC across internal teams.",
+      image: "/kms.png",
+      technologies: ["FastAPI", "PostgreSQL", "Celery", "Redis", "React", "MS Graph API", "Docker"],
+      github: null,
+    }
+  ]
 
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
+  const filteredProjects = selectedCategory === 'all'
+    ? projects
     : projects.filter(project => project.category === selectedCategory)
 
   return (
-    <div className="lg:ml-20 min-h-screen px-6 py-20">
+    <div className="lg:ml-20 min-h-screen px-6 py-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-purple-400 to-yellow-400 mb-6 animate-fadeInUp">
+        <div className="text-center mb-14">
+          <div className="system-tag text-xs mb-3">[ INVENTORY ]</div>
+          <h1 className="font-display text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 text-glow-blue animate-fadeInUp">
             Featured Projects
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fadeInUp animation-delay-200">
-            A showcase of my latest work in artificial intelligence, machine learning, and software engineering.
+          <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
+            Battle-tested builds across AI agents, RAG research, and enterprise systems.
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Category filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <Button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              variant={selectedCategory === category.id ? "default" : "outline"}
-              className={`transition-all duration-300 transform hover:scale-105 ${
+              className={`font-hud tracking-wide uppercase text-xs transition-all duration-300 border ${
                 selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-emerald-500 to-purple-500 text-white'
-                  : 'border-white/20 text-white hover:bg-white/10'
+                  ? 'bg-primary/20 border-primary/60 text-primary shadow-[0_0_16px_rgba(0,168,255,0.25)]'
+                  : 'bg-transparent border-white/15 text-slate-400 hover:text-white hover:border-primary/40'
               }`}
             >
               {category.label}
@@ -113,99 +104,74 @@ export function ProjectsPage() {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Projects grid */}
+        <div className="grid md:grid-cols-2 gap-6">
           {filteredProjects.map((project, index) => (
-            <Card 
+            <SystemPanel
               key={project.id}
-              className="bg-black/70 border-white/10 overflow-hidden group hover:border-white/30 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-fadeInUp"
-              style={{ animationDelay: `${index * 200}ms` }}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+              className="overflow-hidden group hover:-translate-y-1 transition-all duration-500 animate-fadeInUp p-0"
+              corners
+              variant={index % 2 === 0 ? 'blue' : 'violet'}
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden h-48">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                
-                {/* Overlay */}
-                <div className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${
-                  hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
-                }`}>
-                  <div className="absolute inset-0 flex items-center justify-center space-x-4">
-                    <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white transform hover:scale-110 transition-all duration-300">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </Button>
-                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700 text-white transform hover:scale-110 transition-all duration-300">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Demo
-                    </Button>
-                    <Button size="sm" className="bg-yellow-600 hover:bg-yellow-700 text-white transform hover:scale-110 transition-all duration-300">
-                      <Play className="h-4 w-4 mr-2" />
-                      Preview
-                    </Button>
+              <div
+                style={{ animationDelay: `${index * 150}ms` }}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden h-44">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060911] via-[#060911]/40 to-transparent" />
+                  {/* Rank badge */}
+                  <div className="absolute top-3 right-3 w-9 h-9 border border-primary/60 bg-[#060911]/80 flex items-center justify-center system-corners">
+                    <span className="font-display font-black text-primary text-glow-blue">{project.rank}</span>
+                  </div>
+                  <div className="absolute bottom-3 left-4 text-[10px] font-hud tracking-widest text-primary/80">
+                    {project.date}
                   </div>
                 </div>
 
-                {/* Status Badge */}
-                <div className="absolute top-4 right-4">
-                  <Badge 
-                    variant="secondary" 
-                    className={`bg-gradient-to-r ${project.color} text-white animate-pulse`}
-                  >
-                    {project.status}
-                  </Badge>
+                {/* Body */}
+                <div className="p-6">
+                  <h3 className="font-hud text-white text-lg font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-300 mb-5 leading-relaxed font-hud text-sm min-h-[60px]">
+                    {hoveredProject === project.id ? project.longDescription : project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge
+                        key={techIndex}
+                        className="bg-white/[0.04] text-slate-300 border border-white/10 font-hud text-xs hover:border-primary/40 transition-all"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {project.github ? (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="bg-primary/15 border border-primary/50 text-primary hover:bg-primary/25 hover:text-white font-hud tracking-wide uppercase text-xs">
+                        <Github className="h-4 w-4 mr-2" /> View Code
+                      </Button>
+                    </a>
+                  ) : (
+                    <Button size="sm" disabled className="bg-white/[0.03] border border-white/10 text-slate-500 font-hud tracking-wide uppercase text-xs cursor-default">
+                      <Lock className="h-4 w-4 mr-2" /> Internal / Proprietary
+                    </Button>
+                  )}
                 </div>
               </div>
-
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-white text-xl mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-purple-400 transition-all duration-300">
-                      {project.title}
-                    </CardTitle>
-                  </div>
-                </div>
-              </CardHeader>
-
-              <CardContent>
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  {hoveredProject === project.id ? project.longDescription : project.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
-                    <Badge 
-                      key={techIndex}
-                      variant="secondary" 
-                      className="bg-white/10 text-gray-300 border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
-                      style={{ animationDelay: `${techIndex * 50}ms` }}
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            </SystemPanel>
           ))}
-        </div>
-
-        {/* Load More Button */}
-        <div className="text-center mt-12">
-          <Button 
-            size="lg"
-            variant="outline"
-            className="border-emerald-400/50 text-white hover:bg-emerald-400/20 hover:border-emerald-400 transform hover:scale-105 transition-all duration-300"
-          >
-            Load More Projects
-          </Button>
         </div>
       </div>
     </div>
