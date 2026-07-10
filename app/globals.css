@@ -4,62 +4,39 @@
 
 @layer base {
   :root {
-    /* ---- Refined "System" palette: softer slate base, muted blue / violet accents ---- */
-    --background: 220 30% 13%;
-    --foreground: 210 30% 93%;
-    --card: 220 26% 17%;
-    --card-foreground: 210 30% 93%;
-    --popover: 220 26% 17%;
-    --popover-foreground: 210 30% 93%;
-    --primary: 202 85% 56%;          /* softened System blue */
-    --primary-foreground: 220 40% 10%;
-    --secondary: 258 65% 64%;        /* softened monarch violet */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 20% 24%;
-    --muted-foreground: 214 18% 70%;
-    --accent: 258 65% 64%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 350 80% 58%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 210 30% 34%;
-    --input: 220 20% 26%;
-    --ring: 202 85% 56%;
-    --chart-1: 202 85% 56%;
-    --chart-2: 258 65% 64%;
-    --chart-3: 190 80% 58%;
-    --chart-4: 280 60% 64%;
-    --chart-5: 210 80% 62%;
-    --radius: 0.375rem;
+    /* ---- Lovable-inspired warm editorial palette ---- */
+    --background: 43 33% 95%;        /* cream #f7f4ed */
+    --foreground: 0 0% 11%;          /* charcoal #1c1c1c */
+    --card: 43 33% 95%;
+    --card-foreground: 0 0% 11%;
+    --popover: 45 33% 98%;
+    --popover-foreground: 0 0% 11%;
+    --primary: 0 0% 11%;             /* charcoal */
+    --primary-foreground: 45 33% 98%;/* off-white #fcfbf8 */
+    --secondary: 43 21% 91%;         /* light cream #eceae4 */
+    --secondary-foreground: 0 0% 11%;
+    --muted: 43 21% 91%;
+    --muted-foreground: 60 1% 37%;   /* muted gray #5f5f5d */
+    --accent: 43 21% 91%;
+    --accent-foreground: 0 0% 11%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 45 33% 98%;
+    --border: 43 21% 91%;            /* #eceae4 */
+    --input: 43 21% 91%;
+    --ring: 217 91% 60%;             /* focus blue */
+    --chart-1: 0 0% 11%;
+    --chart-2: 60 1% 37%;
+    --chart-3: 43 21% 80%;
+    --chart-4: 217 91% 60%;
+    --chart-5: 43 33% 88%;
+    --radius: 0.375rem;              /* 6px base (buttons/inputs) */
 
-    /* raw hex helpers for gradients */
-    --sl-blue: #3ba7e0;
-    --sl-blue-soft: #74c7ec;
-    --sl-violet: #9d7be6;
-    --sl-violet-soft: #b79cf0;
-    --sl-ink: #18202f;
-    --sl-ink-2: #1d2739;
-  }
-
-  .dark {
-    --background: 220 30% 13%;
-    --foreground: 210 30% 93%;
-    --card: 220 26% 17%;
-    --card-foreground: 210 30% 93%;
-    --popover: 220 26% 17%;
-    --popover-foreground: 210 30% 93%;
-    --primary: 202 85% 56%;
-    --primary-foreground: 220 40% 10%;
-    --secondary: 258 65% 64%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 20% 24%;
-    --muted-foreground: 214 18% 70%;
-    --accent: 258 65% 64%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 350 80% 58%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 210 30% 34%;
-    --input: 220 20% 26%;
-    --ring: 202 85% 56%;
+    /* raw hex helpers */
+    --l-cream: #f7f4ed;
+    --l-offwhite: #fcfbf8;
+    --l-ink: #1c1c1c;
+    --l-muted: #5f5f5d;
+    --l-border: #eceae4;
   }
 
   html {
@@ -67,77 +44,58 @@
   }
 
   body {
-    background-color: var(--sl-ink);
-    color: hsl(var(--foreground));
-    font-family: var(--font-sans), system-ui, sans-serif;
+    background-color: var(--l-cream);
+    color: var(--l-ink);
+    font-family: 'Camera Plain Variable', ui-sans-serif, system-ui, -apple-system,
+      'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
 @layer components {
-  /* ---------- System window / holographic panel ---------- */
+  /* ---------- Card / panel (bordered, no shadow) ---------- */
   .system-panel {
     position: relative;
-    background:
-      linear-gradient(180deg, rgba(33, 44, 66, 0.80) 0%, rgba(26, 35, 53, 0.86) 100%);
-    border: 1px solid rgba(88, 150, 200, 0.28);
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.3),
-      0 0 24px rgba(59, 167, 224, 0.06);
-    backdrop-filter: blur(8px);
+    background: var(--l-cream);
+    border: 1px solid var(--l-border);
+    border-radius: 12px;
   }
 
-  .system-panel-violet {
-    border-color: rgba(157, 123, 230, 0.3);
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.3),
-      0 0 24px rgba(157, 123, 230, 0.07);
-  }
+  /* Kept for API compatibility; no visual difference in this theme */
+  .system-panel-violet { }
+  .system-corners { }
 
-  /* Angular corner brackets (subtle System frame) */
-  .system-corners::before,
-  .system-corners::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 1.5px solid var(--sl-blue);
-    opacity: 0.65;
-    pointer-events: none;
-  }
-  .system-corners::before {
-    top: -1px;
-    left: -1px;
-    border-right: none;
-    border-bottom: none;
-  }
-  .system-corners::after {
-    bottom: -1px;
-    right: -1px;
-    border-left: none;
-    border-top: none;
-  }
-
-  /* Section label ribbon e.g. [ STATUS ] */
+  /* Small muted section label */
   .system-tag {
-    font-family: var(--font-mono), ui-monospace, monospace;
-    letter-spacing: 0.15em;
+    color: var(--l-muted);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--sl-blue);
+    font-weight: 500;
+  }
+
+  /* Signature inset shadow on dark buttons */
+  .btn-inset {
+    box-shadow:
+      rgba(255, 255, 255, 0.2) 0px 0.5px 0px 0px inset,
+      rgba(0, 0, 0, 0.2) 0px 0px 0px 0.5px inset,
+      rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-sans), system-ui, sans-serif; }
-  .font-hud { font-family: var(--font-sans), system-ui, sans-serif; }
+  .font-display { font-family: inherit; }
+  .font-hud { font-family: inherit; }
 
-  .text-glow-blue { text-shadow: 0 0 12px rgba(59, 167, 224, 0.25); }
-  .text-glow-violet { text-shadow: 0 0 12px rgba(157, 123, 230, 0.25); }
+  /* glow helpers become no-ops in the warm theme */
+  .text-glow-blue { }
+  .text-glow-violet { }
 
+  /* soft warm gradient wash for hero/loading backdrops */
   .sl-grid-bg {
     background-image:
-      linear-gradient(rgba(88, 150, 200, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(88, 150, 200, 0.05) 1px, transparent 1px);
-    background-size: 44px 44px;
+      radial-gradient(60% 50% at 20% 10%, rgba(255, 190, 160, 0.18), transparent 70%),
+      radial-gradient(50% 45% at 85% 15%, rgba(180, 200, 255, 0.16), transparent 70%),
+      radial-gradient(45% 40% at 60% 90%, rgba(255, 180, 220, 0.14), transparent 70%);
   }
 
   /* Custom Animations */
@@ -147,17 +105,17 @@
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
+    from { opacity: 0; transform: translateX(-40px); }
     to { opacity: 1; transform: translateX(0); }
   }
 
   @keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
+    from { opacity: 0; transform: translateX(40px); }
     to { opacity: 1; transform: translateX(0); }
   }
 
@@ -171,82 +129,18 @@
     to { transform: rotate(0deg); }
   }
 
-  @keyframes bounce-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  @keyframes ping-slow {
-    0% { transform: scale(1); opacity: 1; }
-    75%, 100% { transform: scale(2); opacity: 0; }
-  }
-
-  @keyframes matrix-fall {
-    0% { transform: translateY(-100vh); }
-    100% { transform: translateY(100vh); }
-  }
-
   @keyframes shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
   }
 
-  @keyframes gradient-x {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  @keyframes countUp {
-    from { opacity: 0; transform: scale(0.5); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  /* Solo Leveling specific */
-  @keyframes glow-pulse {
-    0%, 100% { box-shadow: 0 0 24px rgba(0, 168, 255, 0.15), inset 0 0 32px rgba(0, 168, 255, 0.05); }
-    50% { box-shadow: 0 0 40px rgba(0, 168, 255, 0.35), inset 0 0 40px rgba(0, 168, 255, 0.1); }
-  }
-
-  @keyframes scanline {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100vh); }
-  }
-
-  @keyframes flicker {
-    0%, 100% { opacity: 1; }
-    92% { opacity: 1; }
-    93% { opacity: 0.4; }
-    94% { opacity: 1; }
-    96% { opacity: 0.7; }
-    97% { opacity: 1; }
-  }
-
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(40px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  .animate-fadeIn { animation: fadeIn 1s ease-out; }
-  .animate-fadeInUp { animation: fadeInUp 1s ease-out; }
-  .animate-slideInLeft { animation: slideInLeft 1s ease-out; }
-  .animate-slideInRight { animation: slideInRight 1s ease-out; }
+  .animate-fadeIn { animation: fadeIn 0.8s ease-out; }
+  .animate-fadeInUp { animation: fadeInUp 0.8s ease-out both; }
+  .animate-slideInLeft { animation: slideInLeft 0.8s ease-out both; }
+  .animate-slideInRight { animation: slideInRight 0.8s ease-out both; }
   .animate-spin-slow { animation: spin-slow 3s linear infinite; }
   .animate-spin-reverse { animation: spin-reverse 2s linear infinite; }
-  .animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
-  .animate-ping-slow { animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite; }
-  .animate-matrix-fall { animation: matrix-fall linear infinite; }
   .animate-shimmer { animation: shimmer 2s ease-in-out infinite; }
-  .animate-gradient-x { animation: gradient-x 3s ease infinite; }
-  .animate-float { animation: float 3s ease-in-out infinite; }
-  .animate-countUp { animation: countUp 1s ease-out; }
-  .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
-  .animate-flicker { animation: flicker 4s linear infinite; }
-  .animate-rise { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
   .animation-delay-200 { animation-delay: 200ms; }
   .animation-delay-400 { animation-delay: 400ms; }

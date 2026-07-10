@@ -59,11 +59,11 @@ export function EducationPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="system-tag text-xs mb-3">[ TRAINING GROUNDS ]</div>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 text-glow-blue animate-fadeInUp">
+          <div className="system-tag text-sm mb-3">Education</div>
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1c1c1c] tracking-[-1.2px] mb-4 animate-fadeInUp">
             Education
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
+          <p className="text-lg text-[#5f5f5d] max-w-2xl mx-auto animate-fadeInUp animation-delay-200">
             The academic path that forged the fundamentals.
           </p>
         </div>
@@ -74,23 +74,22 @@ export function EducationPage() {
             <SystemPanel
               key={index}
               className="p-8 animate-slideInLeft"
-              variant={index === 0 ? 'blue' : 'violet'}
             >
               <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
                 <div className="flex items-center space-x-4">
-                  <div className={`p-3 border ${index === 0 ? 'border-primary/50 bg-primary/10' : 'border-secondary/50 bg-secondary/10'}`}>
-                    <GraduationCap className={`w-7 h-7 ${index === 0 ? 'text-primary' : 'text-secondary'}`} />
+                  <div className="p-3 bg-[#1c1c1c]/[0.04] rounded-md">
+                    <GraduationCap className="w-7 h-7 text-[#1c1c1c]" />
                   </div>
                   <div>
-                    <h2 className="font-hud text-white text-xl md:text-2xl font-semibold mb-1">{edu.degree}</h2>
-                    <div className="text-primary font-hud">{edu.school}</div>
+                    <h2 className="text-[#1c1c1c] text-xl md:text-2xl font-semibold mb-1">{edu.degree}</h2>
+                    <div className="text-[#5f5f5d]">{edu.school}</div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="flex items-center justify-end text-slate-400 text-sm font-hud mb-1">
+                  <div className="flex items-center justify-end text-[#5f5f5d] text-sm mb-1">
                     <Calendar className="w-4 h-4 mr-2" />{edu.period}
                   </div>
-                  <div className="font-display text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                  <div className="text-lg font-semibold text-[#1c1c1c]">
                     {edu.score}
                   </div>
                 </div>
@@ -98,25 +97,25 @@ export function EducationPage() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="system-tag text-xs mb-3 flex items-center">
+                  <h3 className="system-tag text-sm mb-3 flex items-center">
                     <Award className="w-4 h-4 mr-2" /> Highlights
                   </h3>
                   <div className="space-y-2">
                     {edu.details.map((d, i) => (
                       <div key={i} className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 bg-primary mt-1.5 flex-shrink-0 rotate-45" />
-                        <span className="text-slate-300 font-hud text-sm">{d}</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#1c1c1c] mt-1.5 flex-shrink-0" />
+                        <span className="text-[#5f5f5d] text-sm">{d}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <h3 className="system-tag text-xs mb-3 flex items-center">
+                  <h3 className="system-tag text-sm mb-3 flex items-center">
                     <BookOpen className="w-4 h-4 mr-2" /> Coursework
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {edu.coursework.map((course, i) => (
-                      <Badge key={i} className="bg-white/[0.04] text-slate-300 border border-white/10 font-hud text-xs">
+                      <Badge key={i} className="rounded-full border border-[#eceae4] bg-[#1c1c1c]/[0.04] text-[#5f5f5d] px-3 py-1 text-sm">
                         {course}
                       </Badge>
                     ))}
@@ -130,25 +129,25 @@ export function EducationPage() {
         {/* Certifications */}
         <div>
           <div className="text-center mb-8">
-            <div className="system-tag text-xs mb-2">[ ACHIEVEMENTS ]</div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-white">Certifications & Ratings</h2>
+            <div className="system-tag text-sm mb-2">Certifications & Ratings</div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#1c1c1c] tracking-[-0.9px]">Certifications & Ratings</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             {certifications.map((cert, index) => (
               <div
                 key={index}
-                className="system-panel system-corners rounded-sm p-6 hover:-translate-y-1 transition-all duration-300 animate-fadeInUp"
+                className="border border-[#eceae4] rounded-[12px] bg-[#f7f4ed] p-6 animate-fadeInUp"
                 style={{ animationDelay: `${index * 120}ms` }}
               >
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 border border-secondary/50 bg-secondary/10 flex-shrink-0">
-                    <Award className="w-5 h-5 text-secondary" />
+                  <div className="p-3 bg-[#1c1c1c]/[0.04] rounded-md flex-shrink-0">
+                    <Award className="w-5 h-5 text-[#1c1c1c]" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-hud font-semibold mb-1">{cert.title}</h3>
-                    <p className="text-primary font-hud text-sm mb-1">{cert.issuer}</p>
-                    <span className="text-slate-500 text-xs font-hud tracking-wide">{cert.date}</span>
+                    <h3 className="text-[#1c1c1c] font-semibold mb-1">{cert.title}</h3>
+                    <p className="text-[#5f5f5d] text-sm mb-1">{cert.issuer}</p>
+                    <span className="text-[#5f5f5d] text-xs tracking-wide">{cert.date}</span>
                   </div>
                 </div>
               </div>

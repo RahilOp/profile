@@ -78,11 +78,11 @@ export function ProjectsPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="system-tag text-xs mb-3">[ INVENTORY ]</div>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 text-glow-blue animate-fadeInUp">
+          <div className="system-tag text-sm mb-3">Projects</div>
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1c1c1c] tracking-[-1.2px] mb-4 animate-fadeInUp">
             Featured Projects
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
+          <p className="text-lg text-[#5f5f5d] max-w-2xl mx-auto animate-fadeInUp animation-delay-200">
             Battle-tested builds across AI agents, RAG research, and enterprise systems.
           </p>
         </div>
@@ -93,10 +93,10 @@ export function ProjectsPage() {
             <Button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`font-hud tracking-wide uppercase text-xs transition-all duration-300 border ${
+              className={`text-sm transition-colors ${
                 selectedCategory === category.id
-                  ? 'bg-primary/20 border-primary/60 text-primary shadow-[0_0_16px_rgba(0,168,255,0.25)]'
-                  : 'bg-transparent border-white/15 text-slate-400 hover:text-white hover:border-primary/40'
+                  ? 'bg-[#1c1c1c] text-[#fcfbf8] rounded-md btn-inset'
+                  : 'bg-transparent border border-[rgba(28,28,28,0.4)] text-[#1c1c1c] hover:bg-[#1c1c1c]/[0.04] rounded-md'
               }`}
             >
               {category.label}
@@ -109,9 +109,7 @@ export function ProjectsPage() {
           {filteredProjects.map((project, index) => (
             <SystemPanel
               key={project.id}
-              className="overflow-hidden group hover:-translate-y-1 transition-all duration-500 animate-fadeInUp p-0"
-              corners
-              variant={index % 2 === 0 ? 'blue' : 'violet'}
+              className="overflow-hidden group hover:border-[rgba(28,28,28,0.4)] hover:-translate-y-0.5 transition-all duration-300 animate-fadeInUp p-0"
             >
               <div
                 style={{ animationDelay: `${index * 150}ms` }}
@@ -119,30 +117,26 @@ export function ProjectsPage() {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 {/* Image */}
-                <div className="relative overflow-hidden h-44">
+                <div className="relative overflow-hidden h-44 border border-[#eceae4] rounded-t-[12px]">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     width={400}
                     height={300}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#18202f] via-[#18202f]/40 to-transparent" />
-                  {/* Rank badge */}
-                  <div className="absolute top-3 right-3 w-9 h-9 border border-primary/60 bg-[#18202f]/80 flex items-center justify-center system-corners">
-                    <span className="font-display font-black text-primary text-glow-blue">{project.rank}</span>
-                  </div>
-                  <div className="absolute bottom-3 left-4 text-[10px] font-hud tracking-widest text-primary/80">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#f7f4ed]/60 to-transparent" />
+                  <div className="absolute bottom-3 left-4 text-[#5f5f5d] text-sm">
                     {project.date}
                   </div>
                 </div>
 
                 {/* Body */}
                 <div className="p-6">
-                  <h3 className="font-hud text-white text-lg font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-[#1c1c1c] text-lg font-semibold mb-3">
                     {project.title}
                   </h3>
-                  <p className="text-slate-300 mb-5 leading-relaxed font-hud text-sm min-h-[60px]">
+                  <p className="text-[#5f5f5d] mb-5 leading-relaxed text-sm min-h-[60px]">
                     {hoveredProject === project.id ? project.longDescription : project.description}
                   </p>
 
@@ -150,7 +144,7 @@ export function ProjectsPage() {
                     {project.technologies.map((tech, techIndex) => (
                       <Badge
                         key={techIndex}
-                        className="bg-white/[0.04] text-slate-300 border border-white/10 font-hud text-xs hover:border-primary/40 transition-all"
+                        className="rounded-full border border-[#eceae4] bg-[#1c1c1c]/[0.04] text-[#5f5f5d] px-3 py-1 text-sm"
                       >
                         {tech}
                       </Badge>
@@ -159,12 +153,12 @@ export function ProjectsPage() {
 
                   {project.github ? (
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" className="bg-primary/15 border border-primary/50 text-primary hover:bg-primary/25 hover:text-white font-hud tracking-wide uppercase text-xs">
+                      <Button size="sm" className="bg-[#1c1c1c] text-[#fcfbf8] hover:bg-[#1c1c1c]/90 rounded-md btn-inset">
                         <Github className="h-4 w-4 mr-2" /> View Code
                       </Button>
                     </a>
                   ) : (
-                    <Button size="sm" disabled className="bg-white/[0.03] border border-white/10 text-slate-500 font-hud tracking-wide uppercase text-xs cursor-default">
+                    <Button size="sm" disabled className="bg-transparent border border-[#eceae4] text-[#5f5f5d] rounded-md cursor-default">
                       <Lock className="h-4 w-4 mr-2" /> Internal / Proprietary
                     </Button>
                   )}

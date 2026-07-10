@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { SystemPanel } from './system-panel'
-import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, Building, ChevronRight } from 'lucide-react'
 
 export function ExperiencePage() {
@@ -61,11 +60,11 @@ export function ExperiencePage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="system-tag text-xs mb-3">[ QUEST LOG ]</div>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 text-glow-blue animate-fadeInUp">
+          <div className="system-tag text-sm mb-3">Experience</div>
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1c1c1c] tracking-[-1.2px] mb-4">
             Experience
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
+          <p className="text-lg text-[#5f5f5d] max-w-2xl mx-auto">
             A professional journey through applied AI and machine learning.
           </p>
         </div>
@@ -78,26 +77,26 @@ export function ExperiencePage() {
                 <button
                   key={index}
                   onClick={() => setSelectedExperience(index)}
-                  className={`w-full text-left system-panel rounded-sm p-5 transition-all duration-300 ${
+                  className={`w-full text-left rounded-[12px] bg-[#f7f4ed] p-5 transition-all duration-300 ${
                     selectedExperience === index
-                      ? 'border-primary/60 shadow-[0_0_24px_rgba(0,168,255,0.2)]'
-                      : 'opacity-70 hover:opacity-100'
+                      ? 'border border-[rgba(28,28,28,0.4)] bg-[#1c1c1c]/[0.03]'
+                      : 'border border-[#eceae4] hover:border-[rgba(28,28,28,0.4)]'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="text-[10px] font-hud bg-primary/10 text-primary border border-primary/30">
+                    <span className="rounded-full border border-[#eceae4] bg-[#1c1c1c]/[0.04] text-[#5f5f5d] px-3 py-1 text-sm">
                       {exp.type}
-                    </Badge>
+                    </span>
                     <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
-                      selectedExperience === index ? 'rotate-90 text-primary' : 'text-slate-500'
+                      selectedExperience === index ? 'rotate-90 text-[#1c1c1c]' : 'text-[#5f5f5d]'
                     }`} />
                   </div>
-                  <h3 className="text-white font-hud font-semibold text-lg mb-1">{exp.title}</h3>
-                  <p className="text-primary font-hud text-sm mb-2">{exp.company}</p>
-                  <div className="flex items-center text-slate-400 text-xs font-hud mb-1">
+                  <h3 className="text-[#1c1c1c] font-semibold text-lg mb-1">{exp.title}</h3>
+                  <p className="text-[#5f5f5d] text-sm mb-2">{exp.company}</p>
+                  <div className="flex items-center text-[#5f5f5d] text-xs mb-1">
                     <Calendar className="w-3 h-3 mr-2" />{exp.period}
                   </div>
-                  <div className="flex items-center text-slate-400 text-xs font-hud">
+                  <div className="flex items-center text-[#5f5f5d] text-xs">
                     <MapPin className="w-3 h-3 mr-2" />{exp.location}
                   </div>
                 </button>
@@ -107,52 +106,51 @@ export function ExperiencePage() {
 
           {/* Detailed view */}
           <div className="lg:col-span-2">
-            <SystemPanel tag="Mission Report" className="p-8">
+            <SystemPanel className="p-8">
               <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
                 <div>
-                  <h2 className="font-display text-2xl md:text-3xl text-white mb-2">{active.title}</h2>
-                  <div className="flex items-center text-primary font-hud font-semibold text-lg mb-3">
-                    <Building className="w-5 h-5 mr-2" />{active.company}
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#1c1c1c] tracking-[-0.9px] mb-2">{active.title}</h2>
+                  <div className="flex items-center text-[#1c1c1c] font-semibold text-lg mb-3">
+                    <Building className="w-5 h-5 mr-2 text-[#5f5f5d]" />{active.company}
                   </div>
-                  <div className="flex flex-wrap gap-4 text-slate-400 text-sm font-hud">
+                  <div className="flex flex-wrap gap-4 text-[#5f5f5d] text-sm">
                     <div className="flex items-center"><Calendar className="w-4 h-4 mr-2" />{active.period}</div>
                     <div className="flex items-center"><MapPin className="w-4 h-4 mr-2" />{active.location}</div>
                   </div>
                 </div>
-                <Badge className="bg-secondary/15 text-secondary border border-secondary/40 font-hud">{active.type}</Badge>
+                <span className="rounded-full border border-[#eceae4] bg-[#1c1c1c]/[0.04] text-[#5f5f5d] px-3 py-1 text-sm">{active.type}</span>
               </div>
 
               <div className="mb-6">
-                <h3 className="system-tag text-xs mb-2">[ Overview ]</h3>
-                <p className="text-slate-300 leading-relaxed font-hud">{active.description}</p>
+                <h3 className="text-[#1c1c1c] font-semibold text-sm mb-2">Overview</h3>
+                <p className="text-[#5f5f5d] leading-relaxed">{active.description}</p>
               </div>
 
               <div className="mb-6">
-                <h3 className="system-tag text-xs mb-3">[ Key Achievements ]</h3>
+                <h3 className="text-[#1c1c1c] font-semibold text-sm mb-3">Key Achievements</h3>
                 <div className="space-y-2">
                   {active.achievements.map((achievement, index) => (
                     <div
                       key={index}
-                      className="flex items-start space-x-3 p-3 border border-white/10 bg-white/[0.02] hover:border-primary/30 transition-all duration-300 animate-slideInLeft"
-                      style={{ animationDelay: `${index * 80}ms` }}
+                      className="flex items-start space-x-3 p-3 rounded-[12px] border border-[#eceae4] bg-[#f7f4ed] hover:border-[rgba(28,28,28,0.4)] transition-all duration-300"
                     >
-                      <div className="w-1.5 h-1.5 bg-primary mt-2 flex-shrink-0 rotate-45" />
-                      <p className="text-slate-300 font-hud text-sm leading-relaxed">{achievement}</p>
+                      <div className="w-1.5 h-1.5 bg-[#1c1c1c] mt-2 flex-shrink-0 rounded-full" />
+                      <p className="text-[#5f5f5d] text-sm leading-relaxed">{achievement}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h3 className="system-tag text-xs mb-3">[ Tech Stack ]</h3>
+                <h3 className="text-[#1c1c1c] font-semibold text-sm mb-3">Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {active.technologies.map((tech, index) => (
-                    <Badge
+                    <span
                       key={index}
-                      className="bg-primary/10 text-primary border border-primary/30 font-hud hover:bg-primary/20 transition-all duration-300"
+                      className="rounded-full border border-[#eceae4] bg-[#1c1c1c]/[0.04] text-[#5f5f5d] px-3 py-1 text-sm"
                     >
                       {tech}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>

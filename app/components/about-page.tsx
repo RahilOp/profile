@@ -39,11 +39,11 @@ export function AboutPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="system-tag text-xs mb-3">[ PLAYER PROFILE ]</div>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 text-glow-blue animate-fadeInUp">
+          <div className="system-tag text-sm mb-3">About</div>
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1c1c1c] tracking-[-1.2px] mb-4 animate-fadeInUp">
             About Me
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
+          <p className="text-lg text-[#5f5f5d] max-w-2xl mx-auto animate-fadeInUp animation-delay-200">
             Pushing the boundaries of applied AI, from research to production grade LLM systems.
           </p>
         </div>
@@ -52,26 +52,26 @@ export function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {/* Story */}
           <SystemPanel tag="Origin Story" className="p-8 animate-slideInLeft">
-            <div className="space-y-4 text-slate-300 leading-relaxed font-hud">
+            <div className="space-y-4 text-[#5f5f5d] leading-relaxed">
               <p>
                 My journey in AI began during my B.Tech in Computer Science at{' '}
-                <span className="text-primary">IIT Patna</span> (CPI 8.44). That path led me to Tokyo,
-                where I now work as an <span className="text-primary">AI Engineer at Otsuka Corporation</span>,
+                <span className="text-[#1c1c1c]">IIT Patna</span> (CPI 8.44). That path led me to Tokyo,
+                where I now work as an <span className="text-[#1c1c1c]">AI Engineer at Otsuka Corporation</span>,
                 engineering agentic RAG chatbots and fine-tuning LLMs for enterprise scale.
               </p>
               <p>
-                I specialize in advanced LLM techniques like <span className="text-secondary">SFT, RLHF, and LoRA/QLoRA</span>{' '}
+                I specialize in advanced LLM techniques like <span className="text-[#1c1c1c]">SFT, RLHF, and LoRA/QLoRA</span>{' '}
                 on multi-node on-premise GPU clusters, and in designing agentic architectures integrated with
                 RAG pipelines using LangChain, CrewAI, and Knowledge Graphs.
               </p>
               <p>
-                Beyond production work, I'm a competitive programmer with <span className="text-primary">600+ DSA problems</span>{' '}
+                Beyond production work, I'm a competitive programmer with <span className="text-[#1c1c1c]">600+ DSA problems</span>{' '}
                 solved across Codeforces (Specialist), CodeChef (1992), and LeetCode. I'm also a published researcher.
               </p>
             </div>
 
-            <div className="mt-6 border-l-2 border-secondary/60 pl-4">
-              <p className="text-slate-300 italic font-hud">
+            <div className="mt-6 border-l-2 border-[#eceae4] pl-4">
+              <p className="text-[#5f5f5d] italic">
                 "The future of AI lies in agents that reason, collaborate, and adapt.
                 My goal is to build systems that augment human capability."
               </p>
@@ -86,27 +86,27 @@ export function AboutPage() {
                 return (
                   <div
                     key={index}
-                    className={`system-panel system-corners rounded-sm p-5 transition-all duration-500 transform ${
+                    className={`border border-[#eceae4] rounded-[12px] bg-[#f7f4ed] p-5 transition-all duration-500 transform ${
                       visibleCards.includes(index) ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                     }`}
                   >
-                    <div className="w-10 h-10 mb-3 border border-primary/50 bg-primary/10 flex items-center justify-center">
-                      <IconComponent className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 mb-3 bg-[#1c1c1c]/[0.04] rounded-md flex items-center justify-center">
+                      <IconComponent className="w-5 h-5 text-[#1c1c1c]" />
                     </div>
-                    <h3 className="text-white font-hud font-semibold text-sm mb-1">{a.title}</h3>
-                    <p className="text-slate-400 text-xs font-hud">{a.note}</p>
+                    <h3 className="text-[#1c1c1c] font-semibold text-sm mb-1">{a.title}</h3>
+                    <p className="text-[#5f5f5d] text-xs">{a.note}</p>
                   </div>
                 )
               })}
             </div>
 
             {/* Publication highlight */}
-            <SystemPanel variant="violet" tag="Research Log" className="p-6 animate-slideInRight">
-              <h3 className="text-white font-hud font-semibold mb-1">Published Research</h3>
-              <p className="text-secondary font-hud text-sm mb-2">
+            <SystemPanel tag="Research" className="p-6 animate-slideInRight">
+              <h3 className="text-[#1c1c1c] font-semibold mb-1">Published Research</h3>
+              <p className="text-[#1c1c1c] text-sm mb-2">
                 DisT5: A Text-to-Text Transformer Model for Disaster Events
               </p>
-              <p className="text-slate-400 text-sm font-hud">
+              <p className="text-[#5f5f5d] text-sm">
                 Online Social Networks and Media (Elsevier), 2026.
               </p>
             </SystemPanel>
@@ -115,13 +115,13 @@ export function AboutPage() {
 
         {/* Interests */}
         <div className="text-center">
-          <div className="system-tag text-xs mb-6">[ SKILL AFFINITIES ]</div>
+          <div className="system-tag text-sm mb-6">Interests</div>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {interests.map((interest, index) => (
               <Badge
                 key={index}
                 variant="secondary"
-                className="bg-primary/10 text-primary border border-primary/30 px-4 py-2 text-sm font-hud tracking-wide hover:bg-primary/20 hover:scale-105 transition-all duration-300 animate-fadeInUp"
+                className="rounded-full border border-[#eceae4] bg-[#1c1c1c]/[0.04] text-[#5f5f5d] px-3 py-1 text-sm animate-fadeInUp"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
                 {interest}

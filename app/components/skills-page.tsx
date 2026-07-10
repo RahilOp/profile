@@ -81,11 +81,11 @@ export function SkillsPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="system-tag text-xs mb-3">[ SKILL TREE ]</div>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 text-glow-blue animate-fadeInUp">
+          <div className="system-tag text-sm mb-3">Skills</div>
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#1c1c1c] tracking-[-1.2px] mb-4 animate-fadeInUp">
             Technical Skills
           </h1>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
+          <p className="text-lg text-[#5f5f5d] max-w-2xl mx-auto animate-fadeInUp animation-delay-200">
             An arsenal spanning AI research, full-stack engineering, and production MLOps.
           </p>
         </div>
@@ -97,15 +97,14 @@ export function SkillsPage() {
             return (
               <SystemPanel
                 key={categoryIndex}
-                tag={category.tag}
-                variant={categoryIndex % 2 === 0 ? 'blue' : 'violet'}
-                className="p-6 md:p-8 transition-all duration-500 hover:-translate-y-1"
+                tag="Category"
+                className="p-6 md:p-8"
               >
                 <div className="flex items-center mb-6">
-                  <div className={`p-3 mr-4 border ${categoryIndex % 2 === 0 ? 'border-primary/50 bg-primary/10' : 'border-secondary/50 bg-secondary/10'}`}>
-                    <CategoryIcon className={`w-7 h-7 ${categoryIndex % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
+                  <div className="p-3 mr-4 bg-[#1c1c1c]/[0.04] rounded-md">
+                    <CategoryIcon className="w-7 h-7 text-[#1c1c1c]" />
                   </div>
-                  <h2 className="font-display text-xl font-bold text-white">{category.title}</h2>
+                  <h2 className="text-xl font-semibold text-[#1c1c1c]">{category.title}</h2>
                 </div>
 
                 <div className="grid grid-cols-1 gap-3">
@@ -116,13 +115,13 @@ export function SkillsPage() {
                     return (
                       <div
                         key={skillIndex}
-                        className={`group flex items-center space-x-3 p-3 border border-white/10 bg-white/[0.02] hover:border-primary/40 transition-all duration-300 ${
+                        className={`group flex items-center space-x-3 p-3 rounded-md border border-[#eceae4] bg-[#1c1c1c]/[0.04] transition-all duration-300 ${
                           visibleSkills.includes(globalIndex) ? 'animate-fadeInUp opacity-100' : 'opacity-0'
                         }`}
                         style={{ animationDelay: `${globalIndex * 40}ms` }}
                       >
-                        <SkillIcon className="w-4 h-4 text-primary/70 flex-shrink-0" />
-                        <span className="text-slate-200 font-hud group-hover:text-primary transition-colors duration-300">
+                        <SkillIcon className="w-4 h-4 text-[#5f5f5d] flex-shrink-0" />
+                        <span className="text-[#1c1c1c]">
                           {skill.name}
                         </span>
                       </div>

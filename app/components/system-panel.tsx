@@ -11,32 +11,14 @@ interface SystemPanelProps {
 }
 
 /**
- * Solo Leveling "System window" frame: holographic panel with angular corner
- * brackets and an optional [ TAG ] header ribbon.
+ * Bordered cream card (Lovable style): containment via a warm 1px border,
+ * no drop shadow, optional small muted section label.
  */
-export function SystemPanel({
-  children,
-  className,
-  variant = 'blue',
-  corners = true,
-  tag,
-}: SystemPanelProps) {
+export function SystemPanel({ children, className, tag }: SystemPanelProps) {
   return (
-    <div
-      className={cn(
-        'system-panel rounded-sm',
-        variant === 'violet' && 'system-panel-violet',
-        corners && 'system-corners',
-        className
-      )}
-    >
+    <div className={cn('system-panel', className)}>
       {tag && (
-        <div className="system-tag text-[10px] md:text-xs mb-4 flex items-center gap-2">
-          <span className="text-white/40">[</span>
-          {tag}
-          <span className="text-white/40">]</span>
-          <span className="flex-1 h-px bg-gradient-to-r from-primary/50 to-transparent" />
-        </div>
+        <div className="system-tag text-xs mb-4">{tag}</div>
       )}
       {children}
     </div>
