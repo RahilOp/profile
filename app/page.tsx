@@ -53,7 +53,7 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-[#060911] relative">
+    <div className="min-h-screen bg-[#18202f] relative">
       <AnimatedBackground />
       <Navigation currentPage={activeSection} onPageChange={handleNavigate} />
 

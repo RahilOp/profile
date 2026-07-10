@@ -1,20 +1,20 @@
 'use client'
 
 /**
- * Static "System" backdrop — deep monarch gradient, subtle grid, and a radial
- * vignette. Intentionally motionless: all animation lives in the loading screen.
+ * Static System backdrop: deep monarch gradient, subtle grid, and a radial
+ * vignette. Intentionally motionless, since all animation lives in the loading screen.
  */
 export function AnimatedBackground() {
   return (
     <>
       {/* Deep monarch gradient wash */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#060911] via-[#0a1428]/70 to-[#0b0620] z-0" />
+      <div className="fixed inset-0 bg-gradient-to-br from-[#18202f] via-[#1f2b44]/70 to-[#221b38] z-0" />
       {/* System grid overlay */}
       <div className="fixed inset-0 sl-grid-bg opacity-40 z-0" />
       {/* Radial vignette focus */}
       <div
         className="fixed inset-0 z-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(3,6,15,0.85) 100%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 40%, transparent 45%, rgba(15,20,32,0.55) 100%)' }}
       />
       {/* Static corner accents */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">

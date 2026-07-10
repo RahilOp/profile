@@ -7,15 +7,15 @@ import { GraduationCap, Calendar, Award, BookOpen } from 'lucide-react'
 export function EducationPage() {
   const education = [
     {
-      degree: "B.Tech — Computer Science & Engineering",
+      degree: "B.Tech in Computer Science & Engineering",
       school: "Indian Institute of Technology, Patna",
-      period: "2020 – 2024",
+      period: "2020 to 2024",
       location: "Patna, India",
       score: "CPI 8.44 / 10",
       details: [
         "Secured AIR 2796 in JEE Advanced 2020 (top 0.3% of 150,000+ candidates).",
         "Solved 600+ DSA problems across Codeforces (Specialist), CodeChef (1992), and LeetCode.",
-        "Coordinator — Creative Writing & Social Media, E-Cell, IIT Patna.",
+        "Coordinator for Creative Writing & Social Media, E-Cell, IIT Patna.",
       ],
       coursework: [
         "Data Structures & Algorithms", "Operating Systems", "DBMS",
@@ -50,8 +50,8 @@ export function EducationPage() {
   const certifications = [
     { title: "Python for Machine Learning & Data Science", issuer: "Udemy", date: "Certified" },
     { title: "Japanese Language Proficiency (NAT) N5", issuer: "NAT-Test", date: "Qualified" },
-    { title: "Codeforces — Specialist", issuer: "Codeforces", date: "Competitive" },
-    { title: "CodeChef — 1992 Rating", issuer: "CodeChef", date: "Competitive" },
+    { title: "Codeforces Specialist", issuer: "Codeforces", date: "Competitive" },
+    { title: "CodeChef 1992 Rating", issuer: "CodeChef", date: "Competitive" },
   ]
 
   return (

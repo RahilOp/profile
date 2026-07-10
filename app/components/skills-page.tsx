@@ -86,7 +86,7 @@ export function SkillsPage() {
             Technical Skills
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
-            The arsenal — spanning AI research, full-stack engineering, and production MLOps.
+            An arsenal spanning AI research, full-stack engineering, and production MLOps.
           </p>
         </div>
 

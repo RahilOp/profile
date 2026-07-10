@@ -1,73 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* ---- Solo Leveling "System" palette (cyan-blue primary / shadow-violet secondary) ---- */
-    --background: 222 47% 6%;
-    --foreground: 200 40% 96%;
-    --card: 220 45% 8%;
-    --card-foreground: 200 40% 96%;
-    --popover: 220 45% 8%;
-    --popover-foreground: 200 40% 96%;
-    --primary: 202 100% 50%;         /* electric System blue #00A8FF */
-    --primary-foreground: 222 47% 6%;
-    --secondary: 262 83% 58%;        /* shadow-monarch violet #7C3AED */
+    /* ---- Refined "System" palette: softer slate base, muted blue / violet accents ---- */
+    --background: 220 30% 13%;
+    --foreground: 210 30% 93%;
+    --card: 220 26% 17%;
+    --card-foreground: 210 30% 93%;
+    --popover: 220 26% 17%;
+    --popover-foreground: 210 30% 93%;
+    --primary: 202 85% 56%;          /* softened System blue */
+    --primary-foreground: 220 40% 10%;
+    --secondary: 258 65% 64%;        /* softened monarch violet */
     --secondary-foreground: 0 0% 100%;
-    --muted: 220 30% 14%;
-    --muted-foreground: 210 20% 65%;
-    --accent: 262 83% 58%;
+    --muted: 220 20% 24%;
+    --muted-foreground: 214 18% 70%;
+    --accent: 258 65% 64%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 350 90% 55%;
+    --destructive: 350 80% 58%;
     --destructive-foreground: 0 0% 100%;
-    --border: 202 80% 45%;
-    --input: 220 30% 16%;
-    --ring: 202 100% 50%;
-    --chart-1: 202 100% 50%;
-    --chart-2: 262 83% 58%;
-    --chart-3: 190 95% 55%;
-    --chart-4: 280 75% 60%;
-    --chart-5: 210 90% 60%;
-    --radius: 0.25rem;
+    --border: 210 30% 34%;
+    --input: 220 20% 26%;
+    --ring: 202 85% 56%;
+    --chart-1: 202 85% 56%;
+    --chart-2: 258 65% 64%;
+    --chart-3: 190 80% 58%;
+    --chart-4: 280 60% 64%;
+    --chart-5: 210 80% 62%;
+    --radius: 0.375rem;
 
-    /* raw hex helpers for glows/gradients */
-    --sl-blue: #00a8ff;
-    --sl-blue-soft: #38bdf8;
-    --sl-violet: #7c3aed;
-    --sl-violet-soft: #a855f7;
-    --sl-ink: #060911;
+    /* raw hex helpers for gradients */
+    --sl-blue: #3ba7e0;
+    --sl-blue-soft: #74c7ec;
+    --sl-violet: #9d7be6;
+    --sl-violet-soft: #b79cf0;
+    --sl-ink: #18202f;
+    --sl-ink-2: #1d2739;
   }
 
-  /* single dark theme — the System is always dark */
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 200 40% 96%;
-    --card: 220 45% 8%;
-    --card-foreground: 200 40% 96%;
-    --popover: 220 45% 8%;
-    --popover-foreground: 200 40% 96%;
-    --primary: 202 100% 50%;
-    --primary-foreground: 222 47% 6%;
-    --secondary: 262 83% 58%;
+    --background: 220 30% 13%;
+    --foreground: 210 30% 93%;
+    --card: 220 26% 17%;
+    --card-foreground: 210 30% 93%;
+    --popover: 220 26% 17%;
+    --popover-foreground: 210 30% 93%;
+    --primary: 202 85% 56%;
+    --primary-foreground: 220 40% 10%;
+    --secondary: 258 65% 64%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 220 30% 14%;
-    --muted-foreground: 210 20% 65%;
-    --accent: 262 83% 58%;
+    --muted: 220 20% 24%;
+    --muted-foreground: 214 18% 70%;
+    --accent: 258 65% 64%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 350 90% 55%;
+    --destructive: 350 80% 58%;
     --destructive-foreground: 0 0% 100%;
-    --border: 202 80% 45%;
-    --input: 220 30% 16%;
-    --ring: 202 100% 50%;
+    --border: 210 30% 34%;
+    --input: 220 20% 26%;
+    --ring: 202 85% 56%;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     background-color: var(--sl-ink);
     color: hsl(var(--foreground));
-    font-family: 'Rajdhani', var(--font-sans), system-ui, sans-serif;
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
 }
 
@@ -76,31 +78,30 @@
   .system-panel {
     position: relative;
     background:
-      linear-gradient(180deg, rgba(8, 18, 34, 0.85) 0%, rgba(6, 11, 22, 0.92) 100%);
-    border: 1px solid rgba(0, 168, 255, 0.35);
+      linear-gradient(180deg, rgba(33, 44, 66, 0.80) 0%, rgba(26, 35, 53, 0.86) 100%);
+    border: 1px solid rgba(88, 150, 200, 0.28);
     box-shadow:
-      0 0 0 1px rgba(0, 168, 255, 0.08),
-      0 0 24px rgba(0, 168, 255, 0.12),
-      inset 0 0 32px rgba(0, 168, 255, 0.05);
-    backdrop-filter: blur(10px);
+      0 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 24px rgba(59, 167, 224, 0.06);
+    backdrop-filter: blur(8px);
   }
 
   .system-panel-violet {
-    border-color: rgba(124, 58, 237, 0.4);
+    border-color: rgba(157, 123, 230, 0.3);
     box-shadow:
-      0 0 0 1px rgba(124, 58, 237, 0.1),
-      0 0 24px rgba(124, 58, 237, 0.15),
-      inset 0 0 32px rgba(124, 58, 237, 0.06);
+      0 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 24px rgba(157, 123, 230, 0.07);
   }
 
-  /* Angular corner brackets (Solo Leveling System frame) */
+  /* Angular corner brackets (subtle System frame) */
   .system-corners::before,
   .system-corners::after {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
-    border: 2px solid var(--sl-blue);
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--sl-blue);
+    opacity: 0.65;
     pointer-events: none;
   }
   .system-corners::before {
@@ -116,27 +117,26 @@
     border-top: none;
   }
 
-  /* System header ribbon e.g. [ STATUS ] */
+  /* Section label ribbon e.g. [ STATUS ] */
   .system-tag {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 0.25em;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--sl-blue);
-    text-shadow: 0 0 12px rgba(0, 168, 255, 0.6);
   }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Orbitron', sans-serif; }
-  .font-hud { font-family: 'Rajdhani', sans-serif; }
+  .font-display { font-family: var(--font-sans), system-ui, sans-serif; }
+  .font-hud { font-family: var(--font-sans), system-ui, sans-serif; }
 
-  .text-glow-blue { text-shadow: 0 0 16px rgba(0, 168, 255, 0.55); }
-  .text-glow-violet { text-shadow: 0 0 16px rgba(124, 58, 237, 0.6); }
+  .text-glow-blue { text-shadow: 0 0 12px rgba(59, 167, 224, 0.25); }
+  .text-glow-violet { text-shadow: 0 0 12px rgba(157, 123, 230, 0.25); }
 
   .sl-grid-bg {
     background-image:
-      linear-gradient(rgba(0, 168, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 168, 255, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(88, 150, 200, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(88, 150, 200, 0.05) 1px, transparent 1px);
     background-size: 44px 44px;
   }
 

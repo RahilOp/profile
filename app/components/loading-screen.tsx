@@ -31,7 +31,7 @@ export function LoadingScreen() {
   }, [])
 
   return (
-    <div className="fixed inset-0 bg-[#060911] sl-grid-bg flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-[#18202f] sl-grid-bg flex items-center justify-center z-50">
       <div className="text-center px-6">
         {/* Animated System core */}
         <div className="mb-10 relative">

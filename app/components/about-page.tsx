@@ -25,7 +25,7 @@ export function AboutPage() {
     { icon: Award, title: "JEE Advanced AIR 2796", note: "Top 0.3% nationwide" },
     { icon: Target, title: "Codeforces Specialist", note: "CodeChef 1992 rating" },
     { icon: Languages, title: "Japanese NAT N5", note: "Language proficiency" },
-    { icon: GraduationCap, title: "IIT Patna — 8.44 CPI", note: "B.Tech CSE, 2024" },
+    { icon: GraduationCap, title: "IIT Patna, 8.44 CPI", note: "B.Tech CSE, 2024" },
   ]
 
   const interests = [
@@ -44,7 +44,7 @@ export function AboutPage() {
             About Me
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto font-hud animate-fadeInUp animation-delay-200">
-            Pushing the boundaries of applied AI — from research to production-grade LLM systems.
+            Pushing the boundaries of applied AI, from research to production grade LLM systems.
           </p>
         </div>
 
@@ -60,13 +60,13 @@ export function AboutPage() {
                 engineering agentic RAG chatbots and fine-tuning LLMs for enterprise scale.
               </p>
               <p>
-                I specialize in advanced LLM techniques — <span className="text-secondary">SFT, RLHF, LoRA/QLoRA</span> —
+                I specialize in advanced LLM techniques like <span className="text-secondary">SFT, RLHF, and LoRA/QLoRA</span>{' '}
                 on multi-node on-premise GPU clusters, and in designing agentic architectures integrated with
                 RAG pipelines using LangChain, CrewAI, and Knowledge Graphs.
               </p>
               <p>
                 Beyond production work, I'm a competitive programmer with <span className="text-primary">600+ DSA problems</span>{' '}
-                solved across Codeforces (Specialist), CodeChef (1992), and LeetCode — and a published researcher.
+                solved across Codeforces (Specialist), CodeChef (1992), and LeetCode. I'm also a published researcher.
               </p>
             </div>
 

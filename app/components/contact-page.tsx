@@ -15,7 +15,7 @@ export function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
     // Fallback: open the user's mail client with the composed message
-    const body = encodeURIComponent(`${formData.message}\n\n— ${formData.name} (${formData.email})`)
+    const body = encodeURIComponent(`${formData.message}\n\nFrom ${formData.name} (${formData.email})`)
     const subject = encodeURIComponent(formData.subject || 'Portfolio Contact')
     window.location.href = `mailto:rahilrizvi0786110@gmail.com?subject=${subject}&body=${body}`
     setTimeout(() => setIsSubmitting(false), 1200)
@@ -173,7 +173,7 @@ export function ContactPage() {
                 <h3 className="text-white font-hud font-semibold">Available for Projects</h3>
               </div>
               <p className="text-slate-400 text-sm font-hud">
-                Currently AI Engineer at Otsuka Corporation, Tokyo — open to discussing AI/LLM projects and collaborations.
+                Currently an AI Engineer at Otsuka Corporation, Tokyo. Open to discussing AI and LLM projects and collaborations.
               </p>
             </SystemPanel>
           </div>

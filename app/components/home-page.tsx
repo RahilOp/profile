@@ -58,7 +58,7 @@ export function HomePage() {
           <p className="text-base md:text-lg text-slate-300/90 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-hud">
             Building Large Language Models, agentic architectures, and RAG pipelines.
             Currently engineering enterprise AI at{' '}
-            <span className="text-primary">Otsuka Corporation, Tokyo</span> — fine-tuning models,
+            <span className="text-primary">Otsuka Corporation, Tokyo</span>, fine-tuning models,
             deploying vLLM inference, and shipping RAG chatbots for 1,000+ users.
           </p>
 
@@ -115,7 +115,7 @@ export function HomePage() {
           <div className="flex items-center gap-5 mb-6">
             <div className="relative shrink-0">
               <div className="absolute -inset-1 bg-gradient-to-br from-primary to-secondary opacity-60 blur-sm" />
-              <div className="relative border border-primary/60 p-0.5 bg-[#060911]">
+              <div className="relative border border-primary/60 p-0.5 bg-[#18202f]">
                 <Image
                   src="/myimg.jpeg"
                   alt="Syed Ali Abbas Rahil"
@@ -142,7 +142,7 @@ export function HomePage() {
             <div className="h-2 bg-white/5 border border-primary/20 overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-primary to-secondary"
-                style={{ width: '87%', boxShadow: '0 0 12px rgba(0,168,255,0.7)' }}
+                style={{ width: '87%', boxShadow: '0 0 8px rgba(59,167,224,0.4)' }}
               />
             </div>
             <div className="flex justify-between text-[10px] font-hud text-slate-500 mt-1">
