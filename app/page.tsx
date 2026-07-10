@@ -11,58 +11,41 @@ import { ExperiencePage } from './components/experience-page'
 import { ProjectsPage } from './components/projects-page'
 import { EducationPage } from './components/education-page'
 import { ContactPage } from './components/contact-page'
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, Linkedin, Mail, ExternalLink, Download, MapPin, Calendar, GraduationCap, Briefcase, Code, Brain, Database, Cpu } from 'lucide-react'
-import Image from "next/image"
 
-const ProjectImage = ({ src, alt, ...props }) => {
-  return (
-    <Image
-      src={src || "/placeholder.svg?height=200&width=300&text=Project+Image"}
-      alt={alt}
-      onError={(e) => {
-        e.target.src = "/placeholder.svg?height=200&width=300&text=Project+Image"
-      }}
-      {...props}
-    />
-  )
-}
+const SECTIONS = ['home', 'about', 'skills', 'experience', 'projects', 'education', 'contact']
 
 export default function Portfolio() {
-  const [currentPage, setCurrentPage] = useState('home')
-  const [isLoading, setIsLoading] = useState(false)
   const [isInitialLoad, setIsInitialLoad] = useState(true)
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsInitialLoad(false)
-    }, 3000)
+    const timer = setTimeout(() => setIsInitialLoad(false), 3000)
     return () => clearTimeout(timer)
   }, [])
 
-  const handlePageChange = (page: string) => {
-    if (page === currentPage) return
-    
-    setIsLoading(true)
-    setTimeout(() => {
-      setCurrentPage(page)
-      setIsLoading(false)
-    }, 1500)
-  }
+  // Scroll-spy: highlight the nav item for the section currently in view.
+  useEffect(() => {
+    if (isInitialLoad) return
 
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case 'home': return <HomePage />
-      case 'about': return <AboutPage />
-      case 'skills': return <SkillsPage />
-      case 'experience': return <ExperiencePage />
-      case 'projects': return <ProjectsPage />
-      case 'education': return <EducationPage />
-      case 'contact': return <ContactPage />
-      default: return <HomePage />
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    )
+
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [isInitialLoad])
+
+  const handleNavigate = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   if (isInitialLoad) {
@@ -70,19 +53,19 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-[#060911] overflow-hidden relative">
+    <div className="min-h-screen bg-[#060911] relative">
       <AnimatedBackground />
-      <Navigation currentPage={currentPage} onPageChange={handlePageChange} />
-      
-      <div className="relative z-10">
-        {isLoading ? (
-          <LoadingScreen />
-        ) : (
-          <div className="animate-fadeIn">
-            {renderCurrentPage()}
-          </div>
-        )}
-      </div>
+      <Navigation currentPage={activeSection} onPageChange={handleNavigate} />
+
+      <main className="relative z-10 animate-fadeIn">
+        <section id="home" className="relative scroll-mt-20"><HomePage /></section>
+        <section id="about" className="scroll-mt-20"><AboutPage /></section>
+        <section id="skills" className="scroll-mt-20"><SkillsPage /></section>
+        <section id="experience" className="scroll-mt-20"><ExperiencePage /></section>
+        <section id="projects" className="scroll-mt-20"><ProjectsPage /></section>
+        <section id="education" className="scroll-mt-20"><EducationPage /></section>
+        <section id="contact" className="scroll-mt-20"><ContactPage /></section>
+      </main>
     </div>
   )
 }
