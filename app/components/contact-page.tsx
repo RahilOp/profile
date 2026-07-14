@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { SystemPanel } from './system-panel'
+import { PixelSoldier } from './pixel-sprites'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -167,7 +168,8 @@ export function ContactPage() {
             </SystemPanel>
 
             {/* Availability */}
-            <SystemPanel className="p-6 text-center">
+            <SystemPanel className="p-6 text-center relative overflow-hidden">
+              <PixelSoldier size={3} className="absolute -right-3 -bottom-2 text-[#1c1c1c]/[0.05] pointer-events-none" />
               <div className="flex items-center justify-center gap-2 mb-2">
                 <span className="w-2.5 h-2.5 bg-green-600 rounded-full" />
                 <h3 className="text-[#1c1c1c] font-semibold">Available for Projects</h3>

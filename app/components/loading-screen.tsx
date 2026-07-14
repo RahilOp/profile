@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { PixelChevron } from './pixel-sprites'
 
 export function LoadingScreen() {
   const [progress, setProgress] = useState(0)
@@ -26,7 +27,10 @@ export function LoadingScreen() {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <div className="mt-3 text-sm text-[#5f5f5d]">Loading portfolio</div>
+          <div className="mt-3 flex items-center justify-center gap-2 text-sm text-[#5f5f5d]">
+            <PixelChevron size={2} className="text-[#1c1c1c]/40" />
+            Loading portfolio
+          </div>
         </div>
       </div>
     </div>
