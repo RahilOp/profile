@@ -1,7 +1,14 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Syed Ali Abbas Rahil | AI Engineer',
@@ -14,16 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.style.fontFamily};
-  --font-mono: ${GeistMono.style.fontFamily};
-}
-        `}</style>
-      </head>
+    <html lang="en" className={`dark ${jakarta.variable} ${GeistMono.variable}`}>
       <body>{children}</body>
     </html>
   )

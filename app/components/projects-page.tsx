@@ -4,8 +4,7 @@ import { useState } from 'react'
 import { SystemPanel } from './system-panel'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github, Lock } from 'lucide-react'
-import Image from "next/image"
+import { Github, Lock, Bot, FlaskConical, Database, Users } from 'lucide-react'
 
 export function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -27,7 +26,7 @@ export function ProjectsPage() {
       date: "March 2025",
       description: "Full-stack multi-agent chat platform (FastAPI + React/TypeScript) with configurable personas and integrated tools.",
       longDescription: "A full-stack multi-agent chat platform with 2 configurable agent personas and 4 integrated tools: real-time web search, Wikipedia lookup, and persistent chat history via LangChain tool-calling. It features LLM-powered long-term memory that auto-extracts user preferences using Pydantic structured outputs, with sessions and profiles persisted in SQLite.",
-      image: "/chatbot.png",
+      icon: Bot,
       technologies: ["FastAPI", "React", "TypeScript", "LangChain", "Pydantic", "SQLite"],
       github: "https://github.com/RahilOp/agent-forge",
     },
@@ -39,7 +38,7 @@ export function ProjectsPage() {
       date: "December 2024",
       description: "Benchmarked 100+ RAG pipeline configurations across processors, chunking strategies, and search methods.",
       longDescription: "An end-to-end RAG evaluation toolkit benchmarking 100+ pipeline configurations across 4 document processors, 9 chunking strategies, and 4 search methods (BM25, KNN, Hybrid) on Elasticsearch 8.x with cross-encoder reranking. It automates evaluation via MRR, RAGAS Context Precision, ROUGE, and semantic similarity across LLaMA, GPT, and Qwen, all driven by a single YAML config.",
-      image: "/rag.jpg",
+      icon: FlaskConical,
       technologies: ["Elasticsearch", "RAGAS", "BM25/KNN/Hybrid", "Cross-Encoder", "LLaMA · GPT · Qwen"],
       github: "https://github.com/RahilOp/rag-eval",
     },
@@ -51,7 +50,7 @@ export function ProjectsPage() {
       date: "2024",
       description: "Modular pipeline generating SFT datasets using multi-agent architecture and Pydantic models.",
       longDescription: "A modular data-augmentation pipeline that generates high-quality SFT datasets in single-turn QA, multi-turn QA, and ORPO formats. It uses a multi-agent architecture with Elasticsearch-based chunk retrieval and retry logic to ensure contextual relevance and data quality for downstream LLM fine-tuning.",
-      image: "/dataaugmentation.png",
+      icon: Database,
       technologies: ["Python", "Multi-agent", "Pydantic", "Elasticsearch", "ORPO"],
       github: "https://github.com/RahilOp/Dataset-Augmenter",
     },
@@ -63,7 +62,7 @@ export function ProjectsPage() {
       date: "Otsuka Corporation",
       description: "Enterprise platform syncing Teams messages, auto-tagging Q&A, and computing leaderboards.",
       longDescription: "An enterprise platform built with MS Graph API, PostgreSQL, and Celery to sync Microsoft Teams messages, auto-tag Q&A pairs, compute Bayesian leaderboards, and expose an admin dashboard, deployed with multi-tenant RBAC across internal teams.",
-      image: "/kms.png",
+      icon: Users,
       technologies: ["FastAPI", "PostgreSQL", "Celery", "Redis", "React", "MS Graph API", "Docker"],
       github: null,
     }
@@ -116,19 +115,10 @@ export function ProjectsPage() {
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                {/* Image */}
-                <div className="relative overflow-hidden h-44 border border-[#eceae4] rounded-t-[12px]">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#f7f4ed]/60 to-transparent" />
-                  <div className="absolute bottom-3 left-4 text-[#5f5f5d] text-sm">
-                    {project.date}
-                  </div>
+                {/* Header */}
+                <div className="relative flex items-center justify-between h-24 px-6 border-b border-[#eceae4] bg-[#1c1c1c]/[0.02]">
+                  <project.icon className="w-8 h-8 text-[#1c1c1c]/80 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                  <span className="text-[#5f5f5d] text-sm">{project.date}</span>
                 </div>
 
                 {/* Body */}

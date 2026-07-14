@@ -46,9 +46,9 @@
   body {
     background-color: var(--l-cream);
     color: var(--l-ink);
-    font-family: 'Camera Plain Variable', ui-sans-serif, system-ui, -apple-system,
-      'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -67,6 +67,7 @@
 
   /* Small muted section label */
   .system-tag {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
     color: var(--l-muted);
     letter-spacing: 0.08em;
     text-transform: uppercase;
